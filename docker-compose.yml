@@ -1,0 +1,25 @@
+version: '3.9'
+
+services:
+  ollama:
+    image: ollama/ollama:latest
+    container_name: kada_hazi_llm
+    ports:
+      - "11434:11434"
+    volumes:
+      - ./llm/ollama:/root/.ollama
+      - ./llm/entrypoint.sh:/entrypoint.sh
+    restart: unless-stopped
+    entrypoint: ["/usr/bin/bash", "/entrypoint.sh"]
+  api:
+    build:
+      context: ./api
+    container_name: kada_hazi_api
+    ports: 
+      - "8000:8000"
+    environment:
+      - MODEL=tinyllama
+    restart: unless-stopped
+
+volumes:
+  ollama_data: 
