@@ -1,5 +1,5 @@
 # Interview Task: RESTful API for Task Management
-A simple API made in Python FastApi for an interview.
+A simple API made in Python FastApi for an interview. The recommendation endpoint uses a local tinyllama LLM. Both the API and the LLM are containerized.
 ## Setup instructions
 - The API can be run in WSL with Docker Desktop connected, or any other environment with Docker support.
 - To start the API service, run the following command: ```docker compose up --build```.
@@ -78,3 +78,5 @@ A simple API made in Python FastApi for an interview.
 }
 ```
 *: not all fields have to be present for PATCH
+
+The detailed API documentation can be seen using Swagger, at ```http://localhost:8000/docs```
